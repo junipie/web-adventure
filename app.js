@@ -4,6 +4,7 @@ var coon = new Audio('racoon.wav');
 var dead = new Audio('dead.wav');
 
 
+
 adventure.movAbe();
 adventure.target();
 
@@ -25,13 +26,16 @@ function mov(xDel, yDel, x, y, bound) {
         coon.play();
         alert("D'oh!!!");
     }
-        else {
+    else {
         adventure.xCoord += x;
         adventure.yCoord += y;
-		adventure.hideAbe(xDel, yDel);
+        adventure.hideAbe(xDel, yDel);
 		adventure.movAbe();
 	};
 }
+
+
+
 
 function movDown() {
 	mov(0, -1, 0, 1, 8);
@@ -53,3 +57,25 @@ function reset() {
     adventure.movAbe();
     adventure.target();
 }
+
+document.onkeydown = function(e) {
+    switch (e.keyCode) {
+        case 37:
+            movLeft();
+            break;
+        case 38:
+            movUp();
+            break;
+        case 39:
+            movRight();
+            break;
+        case 40:
+            movDown();
+            break;
+        case 32:
+            reset();
+            break;
+   }
+};
+
+

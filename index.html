@@ -9,23 +9,27 @@
 <body>
 	<div class="container-fluid">
 		<div class="jumbotron">
-  			<h1>Welcome to my adventure!</h1>
+  			<h1 align="center">Welcome to my adventure!</h1>
 
 
 		</div>
 	</div>
-			
 
-	<div class="dpad" align="center">
+  			<div align ="center">
+  				<button onclick="movUp();" id="up" type="submit" class="btn btn-success">Up</button>
+  			</div>
+  			<div align = "center">
+  				<button onclick="movLeft();" id="left" type="submit" class="btn btn-success">Left</button>
+  				<button onclick="reset();" id="reset" type="submit" class="btn btn-danger">Reset</button>
+  				<button onclick="movRight();" id="right" type="submit" class="btn btn-success">Right</button>
+  			</div>
   			
-  			<button onclick="movUp();" id="up" type="submit" class="btn btn-warning">Up</button>
-  			<button onclick="movLeft();" id="left" type="submit" class="btn btn-warning">Left</button>
-  			<button onclick="movDown();" id="down" type="submit" class="btn btn-warning">Down</button>
-  			<button onclick="movRight();" id="right" type="submit" class="btn btn-warning">Right</button>
-	</div>
-    <div class="container" align="center">
-        <button onclick="reset();" id="reset" type="submit" class="btn btn-danger">Reset</button>
-    </div>
+  			<div align="center">
+  				<button onclick="movDown();" id="down" type="submit" class="btn btn-success">Down</button>
+  			</div>
+  			
+  			
+
 
 	<div class="container-fluid center">
 		<div class="ttt-grid col-xs-offset-3" align="center">
