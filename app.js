@@ -2,47 +2,23 @@ var holdon = new Audio('holdon.wav');
 var coon = new Audio('racoon.wav');
 var dead = new Audio('dead.wav');
 
-function mov(xDel, yDel, x, y, bound) {
-	
-	if(adventure.coord.x === (adventure.end.x + xDel) && adventure.coord.y === (adventure.end.y + yDel)) {
-        adventure.coord.x += x;
-        adventure.coord.y += y;
-        adventure.hideAbe(xDel, yDel);	
-        adventure.killAbe();
-        dead.play();
-        alert("Whuuthaa!!??");
-	}
-	else if (adventure.coord.y === bound && yDel != 0) {
-        holdon.play();
-        alert("D'oh!!!");
-    }
-    else if (adventure.coord.x === bound && xDel != 0) {
-        coon.play();
-        alert("D'oh!!!");
-    }
-    else {
-        adventure.coord.x += x;
-        adventure.coord.y += y;
-        adventure.hideAbe(xDel, yDel);
-		adventure.setPlayer();
-	};
-}
 
 
-var adventure = new Adventure(0,0,7,7,7);
-// var anotherAdventure = new Adventure(0,0,6,6,6);
+
+var adventure = new Adventure(3,3,8,8,8);
+//var anotherAdventure = new Adventure(4,2,7,7,7);
 
 function movDown() {
-	mov(0, -1, 0, 1, adventure.bound);
+	adventure.mov(0, -1, 0, 1, adventure.bound);
 }; 
 function movUp() {
-	mov(0, 1, 0, -1, 0);
+	adventure.mov(0, 1, 0, -1, 0);
 }; 
 function movLeft() {
-	mov(1, 0, -1, 0, 0);
+	adventure.mov(1, 0, -1, 0, 0);
 }; 
 function movRight() {
-	mov(-1, 0, 1, 0, adventure.bound);
+	adventure.mov(-1, 0, 1, 0, adventure.bound);
 };
 
 function reset() {
