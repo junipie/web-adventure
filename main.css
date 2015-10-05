@@ -9,11 +9,12 @@
 }
 .ttt-grid {
 	margin: auto;
+	width: auto;
 }
 
 .center {
     margin: auto;
-    width: 60%;
+    width: 100	%;
 }
 .img {
 	height: 100%;

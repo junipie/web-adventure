@@ -4,43 +4,36 @@ var dead = new Audio('dead.wav');
 
 function mov(xDel, yDel, x, y, bound) {
 	
-	if(adventure.xCoord === (adventure.endX + xDel) && adventure.yCoord === (adventure.endY + yDel)) {
-        adventure.xCoord += x;
-        adventure.yCoord += y;
+	if(adventure.coord.x === (adventure.end.x + xDel) && adventure.coord.y === (adventure.end.y + yDel)) {
+        adventure.coord.x += x;
+        adventure.coord.y += y;
         adventure.hideAbe(xDel, yDel);	
         adventure.killAbe();
         dead.play();
         alert("Whuuthaa!!??");
 	}
-	else if (adventure.yCoord === bound && yDel != 0) {
+	else if (adventure.coord.y === bound && yDel != 0) {
         holdon.play();
         alert("D'oh!!!");
     }
-    else if (adventure.xCoord === bound && xDel != 0) {
+    else if (adventure.coord.x === bound && xDel != 0) {
         coon.play();
         alert("D'oh!!!");
     }
     else {
-        adventure.xCoord += x;
-        adventure.yCoord += y;
+        adventure.coord.x += x;
+        adventure.coord.y += y;
         adventure.hideAbe(xDel, yDel);
-		adventure.movAbe();
+		adventure.setPlayer();
 	};
 }
 
-var adventure = new Adventure(0,0,8,8,8);
 
-// function makeTable(){
-//     console.log("making table");
-//     adventure = new Adventure(0,0,8,8,8);
-//     adventure.makeGrid();
-//     adventure.movAbe();
-//     adventure.target();
-// }
-
+var adventure = new Adventure(0,0,7,7,7);
+// var anotherAdventure = new Adventure(0,0,6,6,6);
 
 function movDown() {
-	mov(0, -1, 0, 1, 8);
+	mov(0, -1, 0, 1, adventure.bound);
 }; 
 function movUp() {
 	mov(0, 1, 0, -1, 0);
@@ -49,18 +42,14 @@ function movLeft() {
 	mov(1, 0, -1, 0, 0);
 }; 
 function movRight() {
-	mov(-1, 0, 1, 0, 8);
+	mov(-1, 0, 1, 0, adventure.bound);
 };
-
-function testinggg(){
-    alert("testing works");
-}
 
 function reset() {
     adventure.hideAbe(0,0);
-    adventure.xCoord = 0;
-    adventure.yCoord = 0;
-    adventure.movAbe();
+    adventure.coord.x = adventure.beginning.x;
+    adventure.coord.y = adventure.beginning.y;
+    adventure.setPlayer();
     adventure.target();
 }
 
