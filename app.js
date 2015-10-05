@@ -1,12 +1,6 @@
-
 var holdon = new Audio('holdon.wav');
 var coon = new Audio('racoon.wav');
 var dead = new Audio('dead.wav');
-
-
-
-adventure.movAbe();
-adventure.target();
 
 function mov(xDel, yDel, x, y, bound) {
 	
@@ -34,7 +28,15 @@ function mov(xDel, yDel, x, y, bound) {
 	};
 }
 
+var adventure;
 
+function makeTable(){
+    console.log("making table");
+    adventure = new Adventure(0,0,8,8,8);
+    adventure.makeGrid();
+    adventure.movAbe();
+    adventure.target();
+}
 
 
 function movDown() {
@@ -49,6 +51,10 @@ function movLeft() {
 function movRight() {
 	mov(-1, 0, 1, 0, 8);
 };
+
+function testinggg(){
+    alert("testing works");
+}
 
 function reset() {
     adventure.hideAbe(0,0);

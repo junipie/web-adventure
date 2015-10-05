@@ -7,6 +7,17 @@ function Adventure(yCoord, xCoord, endX, endY, bound){
 	this.bound = bound;
 };
 
+
+Adventure.prototype.makeGrid = function(){
+	for (var i = 0; i <= this.bound; i++){
+		document.write("<div class=\"row\">");
+		for (var k = 0; k <= this.bound; k++){
+			document.write("<div id="+"\""+i.toString()+k.toString()+"\""+"class=\"col-xs-3 cell\"></div>");
+		};
+		document.write("</div>");
+	};
+}
+
 Adventure.prototype.killAbe = function () {
 		document.getElementById(this.endY.toString() + 
 			this.endX.toString()).innerHTML = "<img src='dead.jpg' class='img'></img>";
@@ -18,6 +29,8 @@ Adventure.prototype.target = function(){
 };
 
 Adventure.prototype.movAbe = function(){
+	console.log(this.yCoord.toString() + 
+			this.xCoord.toString())
 		document.getElementById(this.yCoord.toString() + 
 			this.xCoord.toString()).innerHTML = "<img src='small_abe.png' class='img'></img>";
 };
@@ -27,4 +40,6 @@ Adventure.prototype.hideAbe = function (xChange, yChange) {
 			yChange).toString() + (this.xCoord + xChange).toString()).innerHTML = "";
 };
 
-var adventure = new Adventure(0,0,8,8,8);
+
+
+
