@@ -28,15 +28,15 @@ function mov(xDel, yDel, x, y, bound) {
 	};
 }
 
-var adventure;
+var adventure = new Adventure(0,0,8,8,8);
 
-function makeTable(){
-    console.log("making table");
-    adventure = new Adventure(0,0,8,8,8);
-    adventure.makeGrid();
-    adventure.movAbe();
-    adventure.target();
-}
+// function makeTable(){
+//     console.log("making table");
+//     adventure = new Adventure(0,0,8,8,8);
+//     adventure.makeGrid();
+//     adventure.movAbe();
+//     adventure.target();
+// }
 
 
 function movDown() {

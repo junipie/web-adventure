@@ -16,7 +16,10 @@ Adventure.prototype.makeGrid = function(){
 		};
 		document.write("</div>");
 	};
+	this.movAbe();
+	this.target();
 }
+
 
 Adventure.prototype.killAbe = function () {
 		document.getElementById(this.endY.toString() + 
@@ -29,8 +32,6 @@ Adventure.prototype.target = function(){
 };
 
 Adventure.prototype.movAbe = function(){
-	console.log(this.yCoord.toString() + 
-			this.xCoord.toString())
 		document.getElementById(this.yCoord.toString() + 
 			this.xCoord.toString()).innerHTML = "<img src='small_abe.png' class='img'></img>";
 };
