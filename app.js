@@ -21,13 +21,6 @@ function movRight() {
 	adventure.mov(-1, 0, 1, 0, adventure.bound);
 };
 
-function reset() {
-    adventure.hideAbe(0,0);
-    adventure.coord.x = adventure.beginning.x;
-    adventure.coord.y = adventure.beginning.y;
-    adventure.setPlayer();
-    adventure.target();
-}
 
 document.onkeydown = function(e) {
     switch (e.keyCode) {
@@ -44,7 +37,7 @@ document.onkeydown = function(e) {
             movDown();
             break;
         case 32:
-            reset();
+            adventure.reset();
             break;
    }
 };

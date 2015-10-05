@@ -1,4 +1,3 @@
-
 function Adventure(startX, startY, endX, endY, bound){
 	this.coord = new Thing(startX, startY);
 	this.beginning = new Thing(startX, startY);
@@ -13,16 +12,23 @@ function Thing(x, y) {
 	this.y = y;
 };
 
+Adventure.prototype.atPosition = function(xDel, yDel, character){
+	
+	return (this.coord.x === character.x + xDel) && (this.coord.y === character.y + yDel);
 
+}
 Adventure.prototype.mov = function(xDel, yDel, x, y, bound) {
 	
-	if(this.coord.x === (this.end.x + xDel) && this.coord.y === (this.end.y + yDel)) {
+	if(this.atPosition(xDel, yDel, this.end)){
         this.coord.x += x;
         this.coord.y += y;
         this.hideAbe(xDel, yDel);	
         this.killAbe();
         dead.play();
         alert("Whuuthaa!!??");
+	}
+	else if(this.atPosition(xDel, yDel, this.burns)){
+		this.reset();
 	}
 	else if (this.coord.y === bound && yDel != 0) {
         holdon.play();
@@ -39,6 +45,14 @@ Adventure.prototype.mov = function(xDel, yDel, x, y, bound) {
 		this.setPlayer();
 	};
 }
+
+Adventure.prototype.reset = function() {
+    adventure.hideAbe(0,0);
+    adventure.coord.x = adventure.beginning.x;
+    adventure.coord.y = adventure.beginning.y;
+    adventure.updateDisplay();
+}
+
 
 Adventure.prototype.makeGrid = function(){
 	for (var i = 0; i <= this.bound; i++){
@@ -83,5 +97,11 @@ Adventure.prototype.hideAbe = function (xChange, yChange) {
 };
 
 
-
-
+// function endGame(){
+// 	if((this.setBurns.x === this.setPlayer.x) && (this.setBurns.y === this.setPlayer.y)){
+// 	console.log("Abe is dead!");
+// 	} 
+// 	else {
+// 	console.log("Abe lives!");
+// }
+// }

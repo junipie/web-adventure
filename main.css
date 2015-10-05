@@ -7,20 +7,18 @@
 	overflow: hidden;
 	align-content: center;
 }
+
 .ttt-grid {
-	margin: auto;
-	width: auto;
+	margin: 0, auto, 0, auto;
+	float: auto;
 }
 
-.center {
-    margin: auto;
-    width: 100	%;
-}
 .img {
 	height: 100%;
 	width:100%;
 	margin: auto;
 }
+
 .btn {
 	margin: 10px;
 	height: 35px;
